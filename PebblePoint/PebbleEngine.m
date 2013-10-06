@@ -116,7 +116,7 @@
 
 - (void)selectSlideShow:(SlideShow *)slideShow {
     AFHTTPClient *client = [[self class] client];
-    NSString *path = [NSString stringWithFormat:@"/events/%d/slideshows/%d/choose", slideShow.eventId, slideShow.slideshowId];
+    NSString *path = [NSString stringWithFormat:@"/events/%d/slideshows/%d/choose.json", slideShow.eventId, slideShow.slideshowId];
     [client getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"success: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

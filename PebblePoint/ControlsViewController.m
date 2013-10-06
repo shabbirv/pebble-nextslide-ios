@@ -24,6 +24,9 @@
 }
 
 - (void)dealloc {
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    delegate.currentSlideshow = nil;
+
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidPressBackward object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidPressForward object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kShouldDisableControls object:nil];
@@ -39,19 +42,20 @@
     label.text = self.title;
     [label sizeToFit];
     
-    CABasicAnimation* rotationAnimation;
-    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 /* full rotation*/ * 2 * 0.5 ];
-    rotationAnimation.duration = 0.3;
-    rotationAnimation.cumulative = YES;
-    rotationAnimation.repeatCount = 3;
-    
-    [controlsView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+//    CABasicAnimation* rotationAnimation;
+//    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+//    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 /* full rotation*/ * 2 * 0.5 ];
+//    rotationAnimation.duration = 0.3;
+//    rotationAnimation.cumulative = YES;
+//    rotationAnimation.repeatCount = 3;
+//    
+//    [controlsView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
     
     //Animate controls view
     CGAffineTransform transform = CGAffineTransformMakeScale(0.0, 0.0);
     controlsView.transform = transform;
     controlsView.slideshow = _slideshow;
+    controlsView.alpha = 0.8;
     [UIView animateWithDuration:0.4 delay:0.1 options:0 animations:^{
         controlsView.transform = CGAffineTransformMakeScale(1.0, 1.0);
     } completion:NULL];
@@ -70,6 +74,22 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shiftedBackward) name:kDidPressBackward object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shouldDisable:) name:kShouldDisableControls object:nil];
     
+    
+    scroll.pagingEnabled = YES;
+    
+    int i = 0;
+    int x = 0;
+    for (Slide *slide in _slideshow.slides) {
+        NSString *imgUrl = [_slideshow.imageUrl stringByReplacingOccurrencesOfString:@"pagenumber=1" withString:[NSString stringWithFormat:@"pagenumber=%d", i + 1]];
+        x = 20 + (i * 320);
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(x, 10, 280, 230)];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        [imageView setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:nil];
+        [scroll addSubview:imageView];
+        i++;
+    }
+    [scroll setContentSize:CGSizeMake(x + 320, 0)];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -80,6 +100,7 @@
     } else {
         currentPage = 1;
     }
+    [scroll setContentOffset:CGPointMake(320 * (currentPage - 1), 0) animated:YES];
     slideTextView.text = [self textFromSlides];
     [self showOnPebble];
 }
@@ -90,6 +111,7 @@
     } else {
         currentPage = _slideshow.numSlides;
     }
+    [scroll setContentOffset:CGPointMake(320 * (currentPage - 1), 0) animated:YES];
     slideTextView.text = [self textFromSlides];
     [self showOnPebble];
 }

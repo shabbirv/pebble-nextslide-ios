@@ -33,6 +33,16 @@ NSString * const kShouldDisableControls = @"kShouldDisableControls";
     return YES;
 }
 
+- (void)setCurrentSlideshow:(SlideShow *)currentSlideshow {
+    _currentSlideshow = currentSlideshow;
+    if (currentSlideshow == nil) {
+        NSString *text = @"No Slideshow selected";
+        [[[PBPebbleCentral defaultCentral] lastConnectedWatch] appMessagesPushUpdate:@{@(0): text} onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
+            NSLog(@"%@", update);
+        }];
+    }
+}
+
 - (void)setTargetWatch:(PBWatch*)watch {
     targetWatch = watch;
 
@@ -61,6 +71,9 @@ NSString * const kShouldDisableControls = @"kShouldDisableControls";
     [[PBPebbleCentral defaultCentral].lastConnectedWatch appMessagesAddReceiveUpdateHandler:^BOOL(PBWatch *w2, NSDictionary *update) {
         NSUInteger value = [[update objectForKey:[[update allKeys] lastObject]] intValue];
         dispatch_async(dispatch_get_main_queue(), ^{
+            if (_currentSlideshow == nil) {
+                return;
+            }
             [[NSNotificationCenter defaultCenter] postNotificationName:kShouldDisableControls object:@(YES)];
             [[PebbleEngine sharedEngine] changeSlideDirection:value eventId:_currentSlideshow.eventId forSlideShow:_currentSlideshow.slideshowId];
         });

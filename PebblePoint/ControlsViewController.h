@@ -18,6 +18,7 @@
     IBOutlet ControlsView *controlsView;
     IBOutlet UITextView *slideTextView;
     int currentPage;
+    IBOutlet UIScrollView *scroll;
 }
 
 @property (nonatomic, weak) SlideShow *slideshow;
