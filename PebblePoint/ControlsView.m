@@ -12,14 +12,6 @@
 
 - (void)awakeFromNib {
     
-    self.backgroundColor = [UIColor clearColor];
-    self.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.layer.shadowOffset = CGSizeMake(1,1);
-    self.layer.shadowRadius = 1;
-    self.layer.shadowOpacity = 0.4f;
-    self.layer.shouldRasterize = YES;
-    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
-
     NSArray *screens = [[NSBundle mainBundle] loadNibNamed:@"ControlsView" owner:self options:nil];
     [self addSubview:[screens firstObject]];
 }

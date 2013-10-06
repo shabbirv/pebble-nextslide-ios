@@ -27,5 +27,6 @@ typedef enum {
 - (void)changeSlideDirection:(PPSlideDirection)direction eventId:(int)eventId forSlideShow:(int)slideShowId;
 - (void)getEvents:(void (^)(NSArray *results, NSError *error))completionBlock;
 - (void)getSlideshowsForEvent:(int)eventId completion:(void (^)(NSArray *results, NSError *error))completionBlock;
+- (void)selectSlideShow:(SlideShow *)slideShow;
 
 @end

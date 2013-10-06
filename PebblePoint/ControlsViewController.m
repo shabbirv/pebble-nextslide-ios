@@ -32,6 +32,23 @@
 - (void)viewDidLoad
 {
     
+    //Setup label
+    self.title = _slideshow.name;
+    UILabel *label = [[Utilities sharedUtilities] titleLabel];
+    self.navigationItem.titleView = label;
+    label.text = self.title;
+    [label sizeToFit];
+    
+    CABasicAnimation* rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 /* full rotation*/ * 2 * 0.5 ];
+    rotationAnimation.duration = 0.3;
+    rotationAnimation.cumulative = YES;
+    rotationAnimation.repeatCount = 3;
+    
+    [controlsView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+    
+    //Animate controls view
     CGAffineTransform transform = CGAffineTransformMakeScale(0.0, 0.0);
     controlsView.transform = transform;
     controlsView.slideshow = _slideshow;
@@ -39,12 +56,16 @@
         controlsView.transform = CGAffineTransformMakeScale(1.0, 1.0);
     } completion:NULL];
     
-    [self setupControls];
-    
+    //Delete the delegate about the change of slideshow
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    delegate.currentSlideshow = _slideshow;
+
+    //Init first page
     currentPage = 1;
     slideTextView.text = [self textFromSlides];
     [self showOnPebble];
     
+    //Add observers for shifts and disabling the button
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shiftedForward) name:kDidPressForward object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shiftedBackward) name:kDidPressBackward object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shouldDisable:) name:kShouldDisableControls object:nil];
@@ -81,22 +102,22 @@
 - (NSString *)textFromSlides {
     for (Slide *slide in _slideshow.slides) {
         if (currentPage == slide.slideNumber) {
-            return slide.note;
+            if (slide.note.length == 0) {
+                return @"No Notes";
+            } else {
+                return slide.note;
+            }
         }
     }
-    return @"";
+    return @"No Notes";
 }
 
 - (void)showOnPebble {
-    [[[PBPebbleCentral defaultCentral] lastConnectedWatch] appMessagesPushUpdate:@{@(0): [self textFromSlides]} onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
+    NSString *text = [self textFromSlides];
+    [[[PBPebbleCentral defaultCentral] lastConnectedWatch] appMessagesPushUpdate:@{@(0): text} onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
         NSLog(@"%@", update);
     }];
 
-}
-
-- (void)setupControls {
-    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    delegate.currentSlideshow = _slideshow;
 }
 
 - (void)didReceiveMemoryWarning

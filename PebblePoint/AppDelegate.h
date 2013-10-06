@@ -17,6 +17,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, PBPebbleCentralDelegate, PBWatchDelegate> {
     PBWatch *targetWatch;
+    UIBackgroundTaskIdentifier backgroundTask;
 }
 
 @property (strong, nonatomic) UIWindow *window;

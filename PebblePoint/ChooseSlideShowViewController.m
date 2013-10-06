@@ -82,27 +82,8 @@ static NSString * const kCellReuseIdentifier = @"collectionViewCell";
     PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellReuseIdentifier forIndexPath:indexPath];
     SlideShow *slideshow = [slideshows objectAtIndex:indexPath.row];
     cell.nameLabel.text = slideshow.name;
-    [cell.imageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:slideshow.imageUrl]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-        
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        NSLog(@"%@", error.localizedDescription);
-    }];
     [cell.imageView setImageWithURL:[NSURL URLWithString:slideshow.imageUrl] placeholderImage:nil];
-//    //    if (!event.defaultPublicId) {
-//    cell.imageView.image = [UIImage imageNamed:@"event_icon"];
-//    //        [cell update];
-//    //    } else {
-//    //        NSString *urlString = [NSString stringWithFormat:@"%@w_150,h_150,c_fill/%@.png", IMAGE_BASE, event.defaultPublicId];
-//    //        __weak PhotoCollectionViewCell *weakCell = cell;
-//    //        [cell.imageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]] placeholderImage:[UIImage imageNamed:@"event_icon"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-//    //            weakCell.imageView.image = image;
-//    //            [weakCell update];
-//    //        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-//    //
-//    //        }];
-//    //    }
-//    
-//    
+  
     return cell;
 }
 
@@ -111,7 +92,7 @@ static NSString * const kCellReuseIdentifier = @"collectionViewCell";
     ControlsViewController *controlsView = [[ControlsViewController alloc] initWithNibName:@"ControlsViewController" bundle:nil];
     controlsView.slideshow = slideshow;
     [self.navigationController pushViewController:controlsView animated:YES];
-    
+    [[PebbleEngine sharedEngine] selectSlideShow:slideshow];
 }
 
 - (void)didReceiveMemoryWarning
