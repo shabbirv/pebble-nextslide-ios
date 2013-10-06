@@ -7,9 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
+#import <PebbleKit/PebbleKit.h>
+#import <PebbleKit/PBPebbleCentral.h>
+#import "PebbleEngine.h"
+#import "SlideShow.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@class ViewController;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, PBPebbleCentralDelegate, PBWatchDelegate> {
+    PBWatch *targetWatch;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) ViewController *viewController;
+@property (nonatomic, weak) SlideShow *currentSlideshow;
 
 @end
