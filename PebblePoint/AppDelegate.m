@@ -50,10 +50,10 @@ NSString * const kShouldDisableControls = @"kShouldDisableControls";
     // For demonstration purposes, we start communicating with the watch immediately upon connection,
     // because we are calling -appMessagesGetIsSupported: here, which implicitely opens the communication session.
     
-    // Test if the Pebble's firmware supports AppMessages / Weather:
+    // Test if the Pebble's firmware supports AppMessages :
     [watch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
         if (isAppMessagesSupported) {
-            // Configure our communications channel to target the weather app:
+            // Configure our communications channel
             uint8_t bytes[] = { 0x04, 0xC4, 0xE9, 0x83, 0xF7, 0x76, 0x41, 0x8F, 0x8D, 0x15, 0xDC, 0xAB, 0x23, 0x56, 0xDA, 0x8B };
             NSData *uuid = [NSData dataWithBytes:bytes length:sizeof(bytes)];
             [watch appMessagesSetUUID:uuid];
