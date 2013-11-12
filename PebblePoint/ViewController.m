@@ -54,11 +54,6 @@ static NSString * const kCellReuseIdentifier = @"collectionViewCell";
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-    [super viewDidAppear:YES];
-}
-
 #pragma mark - UICollectionViewDataSource methods
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -69,18 +64,13 @@ static NSString * const kCellReuseIdentifier = @"collectionViewCell";
     return 5.0;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellReuseIdentifier forIndexPath:indexPath];
     Event *event = [events objectAtIndex:indexPath.row];
     cell.nameLabel.text = event.eventName;
     [cell.imageView setImageWithURL:[NSURL URLWithString:event.imageUrl] placeholderImage:nil];
     
-    
     return cell;
-    
-    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

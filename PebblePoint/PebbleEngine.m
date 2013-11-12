@@ -23,30 +23,26 @@
 
 + (AFHTTPClient *) client {
     static AFHTTPClient *client = nil;
-	
-	@synchronized(self)
-	{
-		if (client == nil)
-		{
-			client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (client == nil) {
+            client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
             [client setDefaultHeader:@"Accept" value:@"application/json"];
             [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
-		}
-	}
+        }
+    });
 	return client;
 }
 
 - (void)changeSlideDirection:(PPSlideDirection)direction eventId:(int)eventId forSlideShow:(int)slideShowId {
     
     AFHTTPClient *client = [[self class] client];
-    NSString *path = [NSString stringWithFormat:@"/events/%d/slideshows/%d/%@.json", eventId,slideShowId, (direction == PPSlideDirectionForward) ? @"forward" : @"backward"];
+    NSString *path = [NSString stringWithFormat:@"/events/%d/slideshows/%d/%@.json", eventId, slideShowId, (direction == PPSlideDirectionForward) ? @"forward" : @"backward"];
     [client getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"success");
         [[NSNotificationCenter defaultCenter] postNotificationName:(direction == PPSlideDirectionBackward) ? kDidPressBackward : kDidPressForward object:nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:kShouldDisableControls object:@(NO)];        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"ERROR: %@", operation.responseString);
-        NSLog(@"%@", operation.request.URL);
         [[NSNotificationCenter defaultCenter] postNotificationName:kShouldDisableControls object:@(NO)];
     }];
     
@@ -55,7 +51,6 @@
 - (void)getEvents:(void (^)(NSArray *, NSError *))completionBlock {
     AFHTTPClient *client = [[self class] client];
     [client getPath:@"/events.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"success: %@", responseObject);
         NSMutableArray *array = [NSMutableArray array];
         for (NSDictionary *dict in responseObject) {
             Event *event = [[Event alloc] init];

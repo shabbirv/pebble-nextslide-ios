@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E33726D183298DC00C9877C /* PebbleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E33726B183298DC00C9877C /* PebbleKit.framework */; };
+		9E33726E183298DC00C9877C /* PebbleVendor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E33726C183298DC00C9877C /* PebbleVendor.framework */; };
 		9E50050A1801149A009FC505 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5005091801149A009FC505 /* Event.m */; };
 		9E50050D180116CD009FC505 /* mit_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E50050B180116CD009FC505 /* mit_logo.png */; };
 		9E50050E180116CD009FC505 /* mit_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E50050C180116CD009FC505 /* mit_logo@2x.png */; };
@@ -38,8 +40,6 @@
 		9E84A9991800D53F00212685 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E84A9971800D53F00212685 /* InfoPlist.strings */; };
 		9E84A99B1800D53F00212685 /* PebblePointTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E84A99A1800D53F00212685 /* PebblePointTests.m */; };
 		9E84A9A51800DD5300212685 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E84A9A41800DD5300212685 /* ViewController.xib */; };
-		9E84A9A81800E13200212685 /* PebbleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E84A9A61800E13200212685 /* PebbleKit.framework */; };
-		9E84A9A91800E13300212685 /* PebbleVendor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E84A9A71800E13200212685 /* PebbleVendor.framework */; };
 		9E84A9AB1800E26700212685 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E84A9AA1800E26700212685 /* ExternalAccessory.framework */; };
 		9E84A9AD1800E2DD00212685 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E84A9AC1800E2DD00212685 /* MessageUI.framework */; };
 		9E84A9AF1800E2E300212685 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E84A9AE1800E2E300212685 /* CoreBluetooth.framework */; };
@@ -69,7 +69,6 @@
 		9E84A9F81800F76300212685 /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E84A9E61800F76300212685 /* UIToolbar+FlatUI.m */; };
 		9E84A9FC1800F80300212685 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E84A9FA1800F80300212685 /* PhotoCollectionViewCell.m */; };
 		9E84A9FD1800F80300212685 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E84A9FB1800F80300212685 /* PhotoCollectionViewCell.xib */; };
-		9E84AA011800F84D00212685 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E84AA001800F84D00212685 /* FXBlurView.m */; };
 		9E84AA0A1800FBAF00212685 /* ChooseSlideShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E84AA081800FBAF00212685 /* ChooseSlideShowViewController.m */; };
 		9E84AA0B1800FBAF00212685 /* ChooseSlideShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E84AA091800FBAF00212685 /* ChooseSlideShowViewController.xib */; };
 		BBA6984A4BEB4BC486ECD665 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F104562E35C4FE3A3451765 /* libPods.a */; };
@@ -88,6 +87,8 @@
 /* Begin PBXFileReference section */
 		6207A403A9704518A60A6C91 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		7F104562E35C4FE3A3451765 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E33726B183298DC00C9877C /* PebbleKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PebbleKit.framework; sourceTree = "<group>"; };
+		9E33726C183298DC00C9877C /* PebbleVendor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PebbleVendor.framework; sourceTree = "<group>"; };
 		9E5005081801149A009FC505 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		9E5005091801149A009FC505 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		9E50050B180116CD009FC505 /* mit_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mit_logo.png; path = Images/mit_logo.png; sourceTree = "<group>"; };
@@ -129,8 +130,6 @@
 		9E84A9981800D53F00212685 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9E84A99A1800D53F00212685 /* PebblePointTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PebblePointTests.m; sourceTree = "<group>"; };
 		9E84A9A41800DD5300212685 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		9E84A9A61800E13200212685 /* PebbleKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PebbleKit.framework; path = "../../../Downloads/pebblekit-master/iOS/PebbleKit.framework"; sourceTree = "<group>"; };
-		9E84A9A71800E13200212685 /* PebbleVendor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PebbleVendor.framework; path = "../../../Downloads/pebblekit-master/iOS/PebbleVendor.framework"; sourceTree = "<group>"; };
 		9E84A9AA1800E26700212685 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		9E84A9AC1800E2DD00212685 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9E84A9AE1800E2E300212685 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -182,11 +181,11 @@
 		9E84A9F91800F80300212685 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		9E84A9FA1800F80300212685 /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		9E84A9FB1800F80300212685 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
-		9E84A9FF1800F84D00212685 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
-		9E84AA001800F84D00212685 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		9E84AA071800FBAF00212685 /* ChooseSlideShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSlideShowViewController.h; sourceTree = "<group>"; };
 		9E84AA081800FBAF00212685 /* ChooseSlideShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSlideShowViewController.m; sourceTree = "<group>"; };
 		9E84AA091800FBAF00212685 /* ChooseSlideShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseSlideShowViewController.xib; sourceTree = "<group>"; };
+		9E935F9E18328EF600FC9801 /* PebbleKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PebbleKit.framework; path = "../../Pebble/pebble-dev/PebbleSDK-2.0-BETA1/PebbleKit-iOS/PebbleKit.framework"; sourceTree = "<group>"; };
+		9E935F9F18328EF600FC9801 /* PebbleVendor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PebbleVendor.framework; path = "../../Pebble/pebble-dev/PebbleSDK-2.0-BETA1/PebbleKit-iOS/PebbleVendor.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,10 +200,10 @@
 				9E84A9AF1800E2E300212685 /* CoreBluetooth.framework in Frameworks */,
 				9E84A9AD1800E2DD00212685 /* MessageUI.framework in Frameworks */,
 				9E84A9AB1800E26700212685 /* ExternalAccessory.framework in Frameworks */,
-				9E84A9A81800E13200212685 /* PebbleKit.framework in Frameworks */,
-				9E84A9A91800E13300212685 /* PebbleVendor.framework in Frameworks */,
 				9E84A9721800D53E00212685 /* CoreGraphics.framework in Frameworks */,
 				9E84A9741800D53E00212685 /* UIKit.framework in Frameworks */,
+				9E33726E183298DC00C9877C /* PebbleVendor.framework in Frameworks */,
+				9E33726D183298DC00C9877C /* PebbleKit.framework in Frameworks */,
 				9E84A9701800D53E00212685 /* Foundation.framework in Frameworks */,
 				BBA6984A4BEB4BC486ECD665 /* libPods.a in Frameworks */,
 			);
@@ -260,6 +259,10 @@
 		9E84A96E1800D53E00212685 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E33726B183298DC00C9877C /* PebbleKit.framework */,
+				9E33726C183298DC00C9877C /* PebbleVendor.framework */,
+				9E935F9E18328EF600FC9801 /* PebbleKit.framework */,
+				9E935F9F18328EF600FC9801 /* PebbleVendor.framework */,
 				9E84A9B61800F00200212685 /* MobileCoreServices.framework */,
 				9E84A9B41800EFFC00212685 /* SystemConfiguration.framework */,
 				9E84A9B21800E2F500212685 /* CoreMotion.framework */,
@@ -267,8 +270,6 @@
 				9E84A9AE1800E2E300212685 /* CoreBluetooth.framework */,
 				9E84A9AC1800E2DD00212685 /* MessageUI.framework */,
 				9E84A9AA1800E26700212685 /* ExternalAccessory.framework */,
-				9E84A9A61800E13200212685 /* PebbleKit.framework */,
-				9E84A9A71800E13200212685 /* PebbleVendor.framework */,
 				9E84A96F1800D53E00212685 /* Foundation.framework */,
 				9E84A9711800D53E00212685 /* CoreGraphics.framework */,
 				9E84A9731800D53E00212685 /* UIKit.framework */,
@@ -374,15 +375,6 @@
 			name = FlatUIKit;
 			sourceTree = "<group>";
 		};
-		9E84A9FE1800F84200212685 /* FXBlurView */ = {
-			isa = PBXGroup;
-			children = (
-				9E84A9FF1800F84D00212685 /* FXBlurView.h */,
-				9E84AA001800F84D00212685 /* FXBlurView.m */,
-			);
-			name = FXBlurView;
-			sourceTree = "<group>";
-		};
 		9E84AA021800FB4500212685 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,7 +421,6 @@
 		9E84AA0E1800FBED00212685 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
-				9E84A9FE1800F84200212685 /* FXBlurView */,
 				9E84A9C11800F75300212685 /* FlatUIKit */,
 			);
 			name = "Third Party";
@@ -563,7 +554,6 @@
 				9E84A9F81800F76300212685 /* UIToolbar+FlatUI.m in Sources */,
 				9E84A9F11800F76300212685 /* UINavigationBar+FlatUI.m in Sources */,
 				9E84A9EC1800F76300212685 /* FUISwitch.m in Sources */,
-				9E84AA011800F84D00212685 /* FXBlurView.m in Sources */,
 				9E84A9F41800F76300212685 /* UISlider+FlatUI.m in Sources */,
 				9E84A9FC1800F80300212685 /* PhotoCollectionViewCell.m in Sources */,
 				9E84A9F71800F76300212685 /* UITableViewCell+FlatUI.m in Sources */,
@@ -700,6 +690,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/shabbirv/Downloads/pebblekit-master/iOS",
+					"/Users/shabbirv/Pebble/pebble-dev/PebbleSDK-2.0-BETA1/PebbleKit-iOS",
+					"/Users/shabbirv/Repos/pebble-nextslide-ios",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebblePoint/PebblePoint-Prefix.pch";
@@ -721,6 +713,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/shabbirv/Downloads/pebblekit-master/iOS",
+					"/Users/shabbirv/Pebble/pebble-dev/PebbleSDK-2.0-BETA1/PebbleKit-iOS",
+					"/Users/shabbirv/Repos/pebble-nextslide-ios",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PebblePoint/PebblePoint-Prefix.pch";

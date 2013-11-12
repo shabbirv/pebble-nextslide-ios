@@ -42,15 +42,6 @@
     label.text = self.title;
     [label sizeToFit];
     
-//    CABasicAnimation* rotationAnimation;
-//    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-//    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 /* full rotation*/ * 2 * 0.5 ];
-//    rotationAnimation.duration = 0.3;
-//    rotationAnimation.cumulative = YES;
-//    rotationAnimation.repeatCount = 3;
-//    
-//    [controlsView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
-    
     //Animate controls view
     CGAffineTransform transform = CGAffineTransformMakeScale(0.0, 0.0);
     controlsView.transform = transform;
@@ -77,6 +68,7 @@
     
     scroll.pagingEnabled = YES;
     
+    //Add all the imageviews to the scrollview
     int i = 0;
     int x = 0;
     for (Slide *slide in _slideshow.slides) {
@@ -140,12 +132,6 @@
         NSLog(@"%@", update);
     }];
 
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

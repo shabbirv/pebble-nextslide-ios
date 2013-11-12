@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>0626B0FE-681A-4C0A-A9D2-CBE097F509E5</string>
+	<string>B8A87201-5F16-49DF-999E-A7214140181B</string>
 	<key>IDESourceControlProjectName</key>
 	<string>PebblePoint</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5D9E5BC8-DEE2-424E-BB56-0835AD42D8C4</key>
-		<string>https://github.com/shabbirv/pebble-presenter-ios.git</string>
+		<key>34E2B1EA-EB24-4B98-9F03-ABB04475879F</key>
+		<string>https://github.com/shabbirv/pebble-nextslide-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>PebblePoint.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5D9E5BC8-DEE2-424E-BB56-0835AD42D8C4</key>
+		<key>34E2B1EA-EB24-4B98-9F03-ABB04475879F</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/shabbirv/pebble-presenter-ios.git</string>
+	<string>https://github.com/shabbirv/pebble-nextslide-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5D9E5BC8-DEE2-424E-BB56-0835AD42D8C4</string>
+	<string>34E2B1EA-EB24-4B98-9F03-ABB04475879F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5D9E5BC8-DEE2-424E-BB56-0835AD42D8C4</string>
+			<string>34E2B1EA-EB24-4B98-9F03-ABB04475879F</string>
 			<key>IDESourceControlWCCName</key>
-			<string>PebblePoint</string>
+			<string>pebble-nextslide-ios</string>
 		</dict>
 	</array>
 </dict>
